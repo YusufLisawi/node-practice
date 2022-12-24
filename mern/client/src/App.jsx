@@ -6,15 +6,13 @@ export default function App() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [account, setAccount] = useState(null);
 
   const register = async (e) => {
     e.preventDefault();
     const user = { username, email, password };
     await axios
       .post("http://localhost:1337/api/register", user)
-      .then((res) => setAccount(res.data.id));
-    console.log(account);
+      .then((res) => console.log(res.data));
   };
 
   return (
